@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        h1
+        {
+            font-family: "Times New Roman" ;
+            color : black;
+            font-size: 60px;
+            text-align: center;
+        }
+        body
+        {
+          background-image: url(https://educationusa.state.gov/sites/default/files/styles/content_area_full_width/public/field_hei_logo/um_logo_crest_stacked.jpg?itok=Fgbab5nv);
+          background-repeat: no-repeat;
+		  background-position: right-top;
+        }
+
+        #signup
+        {
+
+            text-align: center;
+        }
+        #login {
+
+            text-align: center;
+        }
+        </style>
+</head>
+<body>
+<h1> Welcome To Ole Miss  </h1>
+<div id = "login">
+<form id="register-form">
+   New User? Sign Up <br> <br>
+    <input id="name" type="text" placeholder="Name" value=""/> <br> <br>
+    <input id="pw" type="password" placeholder="Password" value=""/> <br> <br>
+    <input id="rgstr_btn" type="submit" value="Sign Up" onClick="store()"/> <br><br>
+</form>
+</div>
+<div id = "signup">
+<form id="login-form">
+    Log in to our site : <br> <br>
+    <input id="userName" type="text" placeholder="Enter Username" value=""/> <br> <br>
+    <input id="userPw" type="password" placeholder="Enter Password" value=""/><br> <br>
+    <input id="login_btn" type="submit" value="Login" onClick="check()"/>
+</form>
+</div>
+<script>
+    // Check browser support
+    var name = document.getElementById('name');
+    var pw = document.getElementById('pw');
+
+    // storing input from register-form
+    function store() {
+        localStorage.setItem('name', name.value);
+        localStorage.setItem('pw', pw.value);
+    }
+
+    // check if stored data from register-form is equal to entered data in the   login-form
+    function check() {
+
+        // stored data from the register-form
+        var storedName = localStorage.getItem('name');
+        var storedPw = localStorage.getItem('pw');
+
+        // entered data from the login-form
+        var userName = document.getElementById('userName');
+        var userPw = document.getElementById('userPw');
+
+        // check if stored data from register-form is equal to data from login form
+        if (userName.value !== storedName || userPw.value !== storedPw) {
+            alert('Invalid username and/or password');
+        } else {
+            alert('You are loged in.');
+        }
+    }
+
+    </script>
+</body>
+</html>
