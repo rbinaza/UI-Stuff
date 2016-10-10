@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<title> local storage page </title>
+<script>
+function update () {
+var loginvalue= document.getElementById('login').value;
+// check for browser support
+if (typeof(Storage) !== "undefined"){
+localStorage.setItem("text",loginvalue);
+// Retrieving the data
+document.getElementById("login").innerHTML= localStorage.getItem("login");
+}
+else {
+document.getElementById("login").innerHTML="Sorry, browser does not support web storage";
+}
+
+
+
+
+
+}
+
+
+
+
+
+</script>
+</head>
+<body>
+<input type="text" id="login" />
+<input type="button" value="save" onclick="update()" />
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>

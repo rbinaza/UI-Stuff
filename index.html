@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body ng-controller="StoreController as store">
+<div ng-repeat="product in store.products">
+<h1> {{product.name}} </h1>
+<h2> ${{product.price}} </h2>
+<p> {{product.description}} </p>
+<img ng-src="{{product.image}}"/>
+<button ng-show="product.canPurchase"> Add to Cart </button>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
