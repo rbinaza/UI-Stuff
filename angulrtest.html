@@ -1,0 +1,42 @@
+<!doctype html>
+<html >
+    <head>
+        <meta charset="utf-8">
+        <title> TODO app With Angularjs </title>
+        <style>           
+            
+            .done{text-decoration: line-through;color: #ccc;}
+        </style>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+
+    </head>
+    <body ng-app="ToDo">
+        <div ng-controller = "todoController">
+            <input type="text" ng-keyup="addTodo($event)" name="newtodo" ng-model="newTodo" placeholder="Enter Stuff" required />
+        
+        
+		
+            <br>
+            <button ng-click="clearCompleted()">Clear Completed</button>
+            <ol>
+                <li ng-repeat="todo in todos">
+                    <input type="checkbox" ng-model="todo.done" />
+					
+			<!--  editable TodoList		
+					<span ng-class="{'done': todo.done}">{{todo.title}}</span>
+					-->
+
+                    <span ng-class="{'done': todo.done}" ng-hide="todo.inlineEdit" ng-dblclick="editItem(todo)">{{todo.title}}</span>
+
+                   <input type="text" ng-show="todo.inlineEdit" ng-model="todo.title" ng-keypress="myFunct($event,$index,todo)" />
+				 
+
+                </li>
+            </ol>
+        </div>
+        
+    </body>
+</html>
+
